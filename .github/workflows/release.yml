@@ -38,18 +38,25 @@ jobs:
           mkdir dist
           for lib in libs/*; do
             lib_name=$(basename "$lib")
-            zip -r "dist/${lib_name}.zip" "$lib" -x "*.git*" -x "dist/*" -x "**/vendor/**"
+            cd "$lib"
+            zip -r "../../dist/${lib_name}.zip" . -x "*.git*" -x "vendor/*" -x "dist/*"
+            cd - > /dev/null
           done
+
+      - name: Prepare Upload URL
+        env:
+          UPLOAD_URL: ${{ github.event.release.upload_url }}
+        run: echo "CLEAN_UPLOAD_URL=${UPLOAD_URL%\{*}" >> $GITHUB_ENV
 
       - name: Upload Release Assets
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          UPLOAD_URL: ${{ github.event.release.upload_url }}
+          UPLOAD_URL: ${{ env.CLEAN_UPLOAD_URL }}
         run: |
           for file in dist/*; do
-            curl -sSL \
+            FILENAME=$(basename "$file")
+            curl --fail -X POST \
               -H "Authorization: token $TOKEN" \
-              -H "Content-Type: application/zip" \
-              --data-binary @"$file" \
-              "${UPLOAD_URL}?name=$(basename $file)"
+              -F "file=@$file" \
+              "${UPLOAD_URL}?name=${FILENAME}&label=${FILENAME}"
           done
