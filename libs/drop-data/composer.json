@@ -3,7 +3,7 @@
   "description": "A library to handle drop data.",
   "autoload": {
     "psr-4": {
-      "Libs\\DropData\\": ""
+      "Libs\\DropData\\": "src/"
     }
   }
 }

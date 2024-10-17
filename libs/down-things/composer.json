@@ -1,9 +1,10 @@
 {
   "name": "robertogriel/down-things",
   "description": "A library to handle down things.",
+  "version": "1.0.0",
   "autoload": {
     "psr-4": {
-      "Libs\\DownThings\\": ""
+      "Libs\\DownThings\\": "src/"
     }
   }
 }

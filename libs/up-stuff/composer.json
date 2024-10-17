@@ -3,7 +3,7 @@
   "description": "A library to handle up stuff.",
   "autoload": {
     "psr-4": {
-      "Libs\\UpStuff\\": ""
+      "Libs\\UpStuff\\": "src/"
     }
   }
 }

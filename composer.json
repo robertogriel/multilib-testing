@@ -6,6 +6,12 @@
       "Libs\\": "libs/"
     }
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:robertogriel/multilib-testing.git"
+    }
+  ],
   "require": {
     "robertogriel/down-things": "*",
     "robertogriel/up-stuff": "*",
