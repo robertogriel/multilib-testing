@@ -1,6 +1,7 @@
 {
   "name": "robertogriel/up-stuff",
   "description": "A library to handle up stuff.",
+  "version": "1.0.0",
   "autoload": {
     "psr-4": {
       "Libs\\UpStuff\\": "src/"

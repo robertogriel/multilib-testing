@@ -1,6 +1,7 @@
 {
   "name": "robertogriel/drop-data",
   "description": "A library to handle drop data.",
+  "version": "1.0.0",
   "autoload": {
     "psr-4": {
       "Libs\\DropData\\": "src/"

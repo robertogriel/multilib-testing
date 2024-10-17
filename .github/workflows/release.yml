@@ -1,0 +1,48 @@
+name: Build and Release Libraries
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: Extract version from tag
+        run: echo "RELEASE_TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+      - name: Update composer.json with version
+        run: |
+          for lib in libs/*; do
+            cd "$lib"
+            composer_file="composer.json"
+            if [ -f "$composer_file" ]; then
+              # Atualiza o campo "version" no composer.json
+              jq --arg version "${{ env.RELEASE_TAG }}" '.version = $version' "$composer_file" > tmp.$$.json && mv tmp.$$.json "$composer_file"
+            fi
+            cd - > /dev/null
+          done
+
+      - name: Generate ZIPs
+        run: |
+          mkdir dist
+          for lib in libs/*; do
+            lib_name=$(basename "$lib")
+            zip -r "dist/${lib_name}.zip" "$lib" -x "*.git*" -x "dist/*" -x "**/vendor/**"
+          done
+
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: dist/*
+          asset_name: ${{ basename }}
+          asset_content_type: application/zip
