@@ -1,0 +1,14 @@
+{
+  "name": "robertogriel/my-repo",
+  "description": "A repository with multiple PHP libraries.",
+  "autoload": {
+    "psr-4": {
+      "Libs\\": "libs/"
+    }
+  },
+  "require": {
+    "your-username/down-things": "*",
+    "your-username/up-stuff": "*",
+    "your-username/drop-data": "*"
+  }
+}

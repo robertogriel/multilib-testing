@@ -1,0 +1,9 @@
+{
+  "name": "your-username/up-stuff",
+  "description": "A library to handle up stuff.",
+  "autoload": {
+    "psr-4": {
+      "Libs\\UpStuff\\": ""
+    }
+  }
+}
