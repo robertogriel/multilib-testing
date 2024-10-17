@@ -14,7 +14,7 @@
   ],
   "require": {
     "robertogriel/down-things": "*",
-    "robertogriel/up-stuff": "*",
+    "robertogriel/up-stuff": "1.0",
     "robertogriel/drop-data": "*"
   }
 }
