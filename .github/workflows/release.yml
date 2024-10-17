@@ -39,13 +39,14 @@ jobs:
           for lib in libs/*; do
             lib_name=$(basename "$lib")
             cd "$lib"
-            # Zip only the contents of the library directory
-            zip -r "../../dist/${lib_name}.zip" * -x "*.git*" -x "vendor/*" -x "dist/*"
+            zip -r "../../dist/${lib_name}.zip" . -x "*.git*" -x "vendor/*" -x "dist/*"
             cd - > /dev/null
           done
 
       - name: Prepare Upload URL
-        run: echo "CLEAN_UPLOAD_URL=${{ github.event.release.upload_url%\{* }}" >> $GITHUB_ENV
+        env:
+          UPLOAD_URL: ${{ github.event.release.upload_url }}
+        run: echo "CLEAN_UPLOAD_URL=${UPLOAD_URL%\{*}" >> $GITHUB_ENV
 
       - name: Upload Release Assets
         env:
