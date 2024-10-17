@@ -1,5 +1,5 @@
 {
-  "name": "robertogriel/my-repo",
+  "name": "robertogriel/multilib-testing",
   "description": "A repository with multiple PHP libraries.",
   "autoload": {
     "psr-4": {
@@ -8,8 +8,25 @@
   },
   "repositories": [
     {
-      "type": "vcs",
-      "url": "git@github.com:robertogriel/multilib-testing.git"
+      "type": "path",
+      "url": "./libs/up-stuff",
+      "options": {
+        "symlink": true
+      }
+    },
+    {
+      "type": "path",
+      "url": "./libs/down-things",
+      "options": {
+        "symlink": true
+      }
+    },
+    {
+      "type": "path",
+      "url": "./libs/drop-data",
+      "options": {
+        "symlink": true
+      }
     }
   ],
   "require": {
