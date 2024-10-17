@@ -50,7 +50,7 @@ jobs:
 
       - name: Upload Release Assets
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          TOKEN: ${{ secrets.TOKEN }}
           UPLOAD_URL: ${{ env.CLEAN_UPLOAD_URL }}
         run: |
           for file in dist/*; do
