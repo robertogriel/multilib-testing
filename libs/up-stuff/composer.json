@@ -1,5 +1,5 @@
 {
-  "name": "your-username/up-stuff",
+  "name": "robertogriel/up-stuff",
   "description": "A library to handle up stuff.",
   "autoload": {
     "psr-4": {

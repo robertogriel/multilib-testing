@@ -7,8 +7,8 @@
     }
   },
   "require": {
-    "your-username/down-things": "*",
-    "your-username/up-stuff": "*",
-    "your-username/drop-data": "*"
+    "robertogriel/down-things": "*",
+    "robertogriel/up-stuff": "*",
+    "robertogriel/drop-data": "*"
   }
 }

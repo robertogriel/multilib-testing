@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/libs" isTestSource="false" packagePrefix="Libs\" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/down-things/" isTestSource="false" packagePrefix="Libs\DownThings\" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/drop-data/" isTestSource="false" packagePrefix="Libs\DropData\" />
+      <sourceFolder url="file://$MODULE_DIR$/libs/up-stuff/" isTestSource="false" packagePrefix="Libs\UpStuff\" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

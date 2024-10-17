@@ -1,5 +1,5 @@
 {
-  "name": "your-username/drop-data",
+  "name": "robertogriel/drop-data",
   "description": "A library to handle drop data.",
   "autoload": {
     "psr-4": {
